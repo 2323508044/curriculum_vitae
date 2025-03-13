@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在线简历填写</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            padding: 20px 15px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .section-title {
+            font-size: 20px;
+            color: #2c3e50;
+            margin: 20px 0 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .button {
+            background: #3498db;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .button:hover {
+            background: #2980b9;
+        }
+
+        .add-btn {
+            background: #27ae60;
+            margin-top: 10px;
+        }
+
+        .experience-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="section-title">基本信息</h1>
+        <div class="form-group">
+            <label>姓名</label>
+            <input type="text" placeholder="请输入您的姓名">
+        </div>
+
+        <div class="form-group">
+            <label>联系电话</label>
+            <input type="tel" placeholder="请输入手机号码">
+        </div>
+
+        <h1 class="section-title">教育背景</h1>
+        <div class="form-group">
+            <label>毕业院校</label>
+            <input type="text" placeholder="学校名称">
+        </div>
+
+        <h1 class="section-title">工作经历</h1>
+        <div id="experience-container">
+            <div class="experience-item">
+                <label>公司名称/学习经历</label>
+                <input type="text">
+                <label>任职时间</label>
+                <input type="text">
+                <label>工作内容</label>
+                <textarea></textarea>
+            </div>
+        </div>
+        <button class="button add-btn" onclick="addExperience()">添加经历</button>
+
+        <h1 class="section-title">技能证书</h1>
+        <div class="form-group">
+            <label>具备技能</label>
+            <select>
+                <option>请选择技能</option>
+                <option>HTML/CSS</option>
+                <option>JavaScript</option>
+                <option>Photoshop</option>
+                <option>python</option>
+                <option>java</option>
+                <option>项目管理</option>
+            </select>
+        </div>
+
+        <button class="button">提交简历</button>
+    </div>
+
+    <script>
+        function addExperience() {
+            const container = document.getElementById('experience-container');
+            const newItem = document.createElement('div');
+            newItem.className = 'experience-item';
+            newItem.innerHTML = `
+                <label>公司名称/学习经历</label>
+                <input type="text">
+                <label>任职时间</label>
+                <input type="text">
+                <label>工作内容</label>
+                <textarea></textarea>
+            `;
+            container.appendChild(newItem);
+        }
+    </script>
+</body>
+
+</html>
